@@ -1,0 +1,54 @@
+$color-letra: #fff;
+$fuente-letra: 'Segoe UI';
+
+
+.title {
+    box-sizing: border-box;
+    color: $color-letra;    
+    font-family: $fuente-letra;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 550px;
+    
+    h1{
+        font-size: 40px;
+        margin-top: 30px;
+        font-weight: 700;
+    }
+
+    input[type="text"] {
+        height: 30px;
+        width: 400px;
+        border: 3px solid #ccc;
+        border-radius: 15px;
+        padding: 5px;
+        font-family: $fuente-letra;
+        font-size: 18px;
+    }
+
+    input[type="text"]:hover {
+        border: 3px solid #f39c12; /* ejemplo con borde de color amarillo */
+    }
+
+    input[type="submit"] {
+        margin-left: 5px;
+        height: 45px;
+        width: 80px;
+        border-radius: 15px;
+        padding: 5px;
+        font-family: $fuente-letra;
+        font-size: 18px;
+        border: 3px solid #ccc;
+        background-color: transparent;
+        color: $color-letra;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-weight: 500;
+    }
+
+    input[type="submit"]:hover {
+        cursor: pointer;
+        background-color: #ccc;
+        color: #000;
+    }
+}
