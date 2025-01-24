@@ -1,0 +1,32 @@
+$color-letra: #ccc;
+$fuente-letra: 'Segoe UI';
+
+.TaskList {
+    width: 700px;
+    min-height: 100px;
+    border: 2px #ccc solid;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 5px #fff ;
+}
+
+.item-task{
+    display: flex;
+    box-sizing: border-box;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    align-items: center;
+    color: $color-letra;
+    font-family: $fuente-letra;
+
+    input[type="checkbox"]{
+        transform: scale(1.5);
+    }
+
+    input[type="submit"]{
+        height: 20px;
+    }
+}

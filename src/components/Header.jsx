@@ -1,15 +1,16 @@
 import '../components/Header.scss'
 
-function Header() {
+function Header({textTask, setTextTask, saveTask}) {
     
+
 
     return (
 
         <>
             <div className="title">
                 <h1>Administrador de tareas</h1>
-                <input id='task' type="text" placeholder='Ingresa una nueva tarea'/>
-                <input type="submit" value='Guardar'/>
+                <input value={textTask} onChange={(e) => setTextTask(e.target.value)} id='task' type="text" placeholder='Ingresa una nueva tarea'/>
+                <input onClick={() => saveTask(textTask)} type="submit" value='Guardar'/>
             </div>
 
         </>
