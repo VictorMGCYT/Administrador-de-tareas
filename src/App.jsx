@@ -62,8 +62,20 @@ function App() {
 
     }
 
-    function isChecked(check) {
-        
+    function isChecked(complet, des, id) {
+        if (complet) {
+            const updatedTask = [...task];
+
+            updatedTask[id] = {descripcion: des, completada: false};
+            setTask(updatedTask);
+            console.log(updatedTask);
+        } else {
+            const updatedTask = [...task];
+
+            updatedTask[id] = {descripcion: des, completada: true};
+            setTask(updatedTask);
+            console.log(updatedTask);
+        }
     }
 
     return (
