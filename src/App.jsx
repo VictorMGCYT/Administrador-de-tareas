@@ -5,21 +5,32 @@ import TaskList from './components/TaskList'
 import Swal from 'sweetalert2'
 
 function App() {
+    const initialTasks = localStorage.getItem('tasks')
 
-    const [task, setTask] = useState([]);
+    const [task, setTask] = useState(JSON.parse(initialTasks)??[]);
     const [textTask, setTextTask] = useState('');
 
     useEffect(()=>{
-        
+
+        const stringTask = JSON.stringify(task);
+        localStorage.setItem('tasks', stringTask);
+
     },[task])
 
     function saveTask(tarea) {
         if (tarea === '') {
-        console.log('La tarea no puede estar vacía');
-        } else {
-        setTask([...task, tarea]);
-        console.log(`La tarea ${tarea} fue agregada correctamente`)
-        setTextTask('');
+            console.log('La tarea no puede estar vacía');
+        } 
+        else {
+            const createNewTask = {
+                descripcion: tarea,
+                completada: false
+            }
+
+            setTask([...task, createNewTask]);
+                
+            console.log(`La tarea ${tarea} fue agregada correctamente`)
+            setTextTask('');
         }
     }
 
@@ -36,7 +47,7 @@ function App() {
             if (result.isConfirmed) {
                 const updatedTask = [...task];
 
-                updatedTask[id] = undefined;
+                updatedTask[id] = {descripcion: undefined, completada: false};
                 console.log(updatedTask);
 
                 setTask(updatedTask);
@@ -44,13 +55,16 @@ function App() {
                 title: "¡Borrado!",
                 text: "Tu tarea ha sido borrada.",
                 icon: "success"
-              });
-            }
+            });
+            }
           });
         
 
     }
 
+    function isChecked(check) {
+        
+    }
 
     return (
         <>
@@ -64,6 +78,7 @@ function App() {
             <TaskList
                 task={task}
                 deleteTask={deleteTask}
+                isChecked={isChecked}
             >
 
             </TaskList>

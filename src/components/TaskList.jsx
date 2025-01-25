@@ -1,6 +1,6 @@
 import '../components/TaskList.scss'
 
-function TaskList({task, deleteTask}) {
+function TaskList({task, deleteTask, isChecked}) {
     
     return (
         <>
@@ -8,10 +8,10 @@ function TaskList({task, deleteTask}) {
                 {task.map((item, index) => {
 
                     
-                    return item !== null && item !== undefined ? (
+                    return item.descripcion !== null && item.descripcion !== undefined ? (
                         <div key={index} className='item-task'>
-                            <input type="checkbox" name="" id="" />
-                            <p key={index}>{item}</p>
+                            <input onChange={() => isChecked} type="checkbox" name="" id="" />
+                            <p key={index}>{item.descripcion}</p>
                             <input onClick={() => deleteTask(index)} type="submit" value={`Borrar`} />
                         </div>
                     )
